@@ -1,0 +1,336 @@
+@import '../public/public.less';
+// 用 max-width 来防止图片撑破容器
+.max-img() { display: block; max-width: 100%; height: auto; }
+// 盒子宽高
+.size(@w, @h) { width: @w; height: @h; }
+// 统一盒模型
+.border-box() {
+  *, *:after, *:before { box-sizing: border-box; margin: 0; padding: 0;}
+  }
+.border-box();
+ 
+// 最小尺寸, 兼容IE6
+.min-width(@min-w) { min-width: @min-w; _width: @min-w; }
+.min-height(@min-h) { min-height: @min-h; _height: @min-h; }
+ 
+// 内联块级元素, 兼容IE6
+.dib() { display: inline-block; *display: inline; *zoom: 1; }
+// 固定定位, 兼容IE6
+.fixed() { position: fixed; _position: absolute; *zoom: 1; }
+// 文字图片居中
+.center(text-x) { text-align: center; }
+.center(text-y) { display: table-cell; vertical-align: middle; }
+// 块级元素水平居中
+.center(auto-x) { display: block; margin-left: auto; margin-right: auto; }
+// 字体大小
+.fz(@fz) { font-size: @fz; }
+ 
+// 字体大小与行高
+.fz(@fz, @lh) { font-size: @fz; line-height: @lh; }
+ 
+// 字体大小、行高、高度
+.fz(@fz, @h, @lh: @h) { font-size: @fz; height: @h; line-height: @lh; }
+ 
+// 行高与高度
+.lh(@h, @lh: @h) { height: @h; line-height: @lh; }
+ 
+// 字体颜色, 包括链接与非链接
+.color(@color) { color: @color;}
+ 
+// 字体颜色 + 自身 Hover
+.color(@color, @hovercolor) {
+  color: @color;
+  &:hover { color: @hovercolor; }
+}
+ 
+// 字体颜色 + 链接 Hover
+.color(@color, @acolor, @hovercolor) {
+  color: @color;
+  a {
+    color: @acolor;
+    &:hover { color: @hovercolor; }
+  }
+}
+// 内外边距
+.space (@sp, @clsp: @sp * 5) when (@sp < 100){
+  .margin-@{clsp} {
+      margin:@sp * 5px;
+  }
+  .padding-@{clsp} {
+      padding: @sp * 5px
+  }
+  .space(@sp + 1);
+}
+.a-btn {
+  cursor: pointer;
+  text-align: center;
+  background-color: #5d6ac4;
+  display: inline-block;
+  width: 130px;
+  padding: 14px 20px;
+  .fz(12px);
+  color: white;
+  line-height: 1.1;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+.fc-242424 {
+  color: #242424;
+}
+.fc-fff {
+  color: #ffffff;
+}
+.fc-c1c1c1 {
+  color: #c1c1c1;
+}
+.fc-5d6ac4 {
+  color: #5d6ac4;
+}
+.fc-84c45d {
+  color: #84c45d;
+}
+.fc-928c8c {
+  color: #928c8c;
+}
+.fc-81c05b {
+  color: #81c05b;
+}
+.f-size-53 {
+  font-size: 53px;
+}
+.f-size-12 {
+  font-size: 12px;
+}
+.f-size-14 {
+  font-size: 14px;
+}
+.f-size-16 {
+  font-size: 16px;
+}
+.f-size-18 {
+  font-size: 18px;
+}
+.f-size-20 {
+  font-size: 20px;
+}
+.f-size-24 {
+  font-size: 24px;
+}
+.f-size-26 {
+  font-size: 26px;
+}
+.f-size-28 {
+  font-size: 28px;
+}
+.f-size-30 {
+  font-size: 30px;
+}
+.f-size-32 {
+  font-size: 32px;
+}
+.font-w {
+  font-weight: 650;
+}
+.center {
+  text-align: center;
+}
+.hover-cursor {
+  cursor: pointer;
+}
+.bg-5d6ac4 {
+  background-color: #5d6ac4;
+}
+.bg-fff {
+  background-color: #ffffff;
+}
+.bg-242428 {
+  background-color: #242428;
+}
+.bg-f4f4f4 {
+  background-color: #f4f4f4;
+}
+.margin-lr-5 {
+  margin: 0 5px;
+}
+.margin-lr-10 {
+  margin: 0 10px;
+}
+.margin-lr-15 {
+  margin: 0 15px;
+}
+.margin-lr-20 {
+  margin: 0 20px;
+}
+.margin-lr-25 {
+  margin: 0 5px;
+}
+.margin-lr-30 {
+  margin: 0 5px;
+}
+.margin-lr-5 {
+  margin: 0 5px;
+}
+.margin-b-60 {
+  margin-bottom: 60px;
+}
+.margin-b-50 {
+  margin-bottom: 50px;
+}
+.margin-b-40 {
+  margin-bottom: 40px;
+}
+.margin-b-30 {
+  margin-bottom: 30px;
+}
+.margin-b-20 {
+  margin-bottom: 20px;
+}
+.margin-b-10 {
+  margin-bottom: 10px;
+}
+.margin-t-90 {
+  margin-top: 80px;
+}
+.margin-t-100 {
+  margin-top: 100px;
+}
+.margin-t-80 {
+  margin-top: 80px;
+}
+.margin-t-70 {
+  margin-top: 70px;
+}
+.margin-t-60 {
+  margin-top: 60px;
+}
+.margin-t-50 {
+  margin-top: 50px;
+}
+.margin-t-40 {
+  margin-top: 40px;
+}
+.margin-t-30 {
+  margin-top: 30px;
+}
+.margin-t-20 {
+  margin-top: 20px;
+}
+.margin-t-10 {
+  margin-top: 10px;
+}
+
+.margin-l-60 {
+  margin-left: 60px;
+}
+.margin-l-50 {
+  margin-left: 50px;
+}
+.margin-l-40 {
+  margin-left: 40px;
+}
+.margin-l-30 {
+  margin-left: 30px;
+}
+.margin-l-20 {
+  margin-left: 20px;
+}
+.margin-l-10 {
+  margin-left: 10px;
+}
+
+.margin-r-60 {
+  margin-right: 60px;
+}
+.margin-r-50 {
+  margin-right: 50px;
+}
+.margin-r-40 {
+  margin-right: 40px;
+}
+.margin-r-30 {
+  margin-right: 30px;
+}
+.margin-r-20 {
+  margin-right: 20px;
+}
+.margin-r-10 {
+  margin-right: 10px;
+}
+
+.margin-tb-10 {
+  margin: 10px 0;
+}
+.margin-tb-15 {
+  margin: 15px 0;
+}
+.margin-tb-20 {
+  margin: 20px 0;
+}
+.margin-tb-25 {
+  margin: 25px 0;
+}
+.margin-tb-30 {
+  margin: 30px 0;
+}
+.margin-t-0 {
+  margin-top: 0;
+}
+textarea {
+  outline: none;
+  resize: vertical;
+  border: none;
+  color: #ffffff;
+}
+video {
+  cursor: pointer;
+}
+
+.designer-desc {
+  padding-right: 140px;
+  width: 505px;
+}
+.designer-info {
+  display: flex;
+  justify-content: space-around;
+}
+.designer-desc-title {
+  margin-bottom: 25px;
+}
+.designer-desc-detail {
+  margin-bottom: 40px;
+}
+.right-video {
+  position: relative;
+  width: 670px;
+  height: 376px;
+}
+.video-steam {
+  cursor: pointer;
+  max-width: 553px;
+}
+
+.play-btn {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0px;
+  left: 30px;
+  width: 127px;
+  height: 127px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 127px;
+}
+.w100 {
+  width: 100%;
+}
+// input 框
+.control-input {
+  outline: none;
+  border: none;
+  background-color: #303033;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 20px;
+  color: #ffffff;
+}

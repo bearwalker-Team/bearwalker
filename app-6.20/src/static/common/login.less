@@ -1,0 +1,160 @@
+
+// 内外边距
+.space (@sp, @clsp: @sp * 5) when (@sp < 8){
+  .margin-@{clsp} {
+      margin:@sp * 5px;
+  }
+  .padding-@{clsp} {
+      padding: @sp * 5px
+  }
+  .space(@sp + 1);
+}
+
+.w1200 {
+  width: 1200px;
+  margin: auto;
+}
+// 用 max-width 来防止图片撑破容器
+.max-img() { display: block; max-width: 100%; height: auto; }
+// 盒子宽高
+.size(@w, @h) { width: @w; height: @h; }
+ 
+// 最小尺寸, 兼容IE6
+.min-width(@min-w) { min-width: @min-w; _width: @min-w; }
+.min-height(@min-h) { min-height: @min-h; _height: @min-h; }
+ 
+// 内联块级元素, 兼容IE6
+.dib() { display: inline-block; *display: inline; *zoom: 1; }
+ 
+// 固定定位, 兼容IE6
+.fixed() { position: fixed; _position: absolute; *zoom: 1; }
+ 
+// 统一盒模型
+.border-box() {
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0; padding: 0;}
+}
+.border-box();
+// 文字图片居中
+.center(text-x) { text-align: center; }
+.center(text-y) { display: table-cell; vertical-align: middle; }
+// 块级元素水平居中
+.center(auto-x) { display: block; margin-left: auto; margin-right: auto; }
+// 居中, Flex 方式
+.center(flex) { display: flex; align-items: center; justify-content: center; }
+// 字体大小
+.fz(@fz) { font-size: @fz; }
+ 
+// 字体大小与行高
+.fz(@fz, @lh) { font-size: @fz; line-height: @lh; }
+ 
+// 字体大小、行高、高度
+.fz(@fz, @h, @lh: @h) { font-size: @fz; height: @h; line-height: @lh; }
+ 
+// 行高与高度
+.lh(@h, @lh: @h) { height: @h; line-height: @lh; }
+ 
+// 字体颜色, 包括链接与非链接
+.color(@color) { color: @color;}
+ 
+// 字体颜色 + 自身 Hover
+.color(@color, @hovercolor) {
+  color: @color;
+  &:hover { color: @hovercolor; }
+}
+ 
+// 字体颜色 + 链接 Hover
+.color(@color, @acolor, @hovercolor) {
+  color: @color;
+  a {
+    color: @acolor;
+    &:hover { color: @hovercolor; }
+  }
+}
+
+// 余佳亮
+button {
+  outline: none;
+  cursor: pointer;
+}
+a {
+  cursor: pointer;
+}
+.float () {
+  .fl {
+    float: left;
+  }
+  .fr {
+    float: right;
+  }
+  .clearfix {
+    display: block;
+    &:after {
+      display: block;
+      clear: both;
+      content: '';
+    }
+  }
+}
+.float();
+.w1100 {
+  width: 1100px;
+  margin: auto;
+}
+.pd110 {
+  padding: 110px 0;
+}
+.title {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+.href {
+  display: block;
+  .color(#747474);
+  opacity: 50%;
+  .fz(14px);
+  margin-bottom: 10px;
+}
+.info {
+  .color(#242428);
+  opacity: 0.5;
+  .fz(14px);
+  margin: 30px 0;
+}
+.form {
+  .size(370px,auto);
+  display: inline-block;
+}
+.input {
+  display: block;
+  margin: 10px auto;
+  padding: 0 15px;
+  width: 100%;
+  line-height: 45px;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+.btn {
+  .color(#ffffff);
+  .fz(12px);
+  display: block;
+  background: #5d6ac4;
+  width: 130px;
+  text-align: center;
+  border: 1px solid #5d6ac4;
+  border-radius: 1px;
+  opacity: 0.5;
+  margin-bottom: 10px;
+  height: 43px;
+  &:hover {
+    .color(#5d6ac4);
+    background: #ffffff;
+  }
+}
+.cart-num {
+  .fz(35px);
+  font-weight: 500;
+}
+.more, .remove {
+  color: #5d6ac4;
+  .fz(14px);
+}
